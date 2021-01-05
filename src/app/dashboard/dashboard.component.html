@@ -1,3 +1,73 @@
-<div class="container-fluid">
-    <h1>Dashboard!</h1>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <!-- Repo summary-->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="media">
+                    <img class="mr-3 rounded align-top" src="https://dummyimage.com/150x150/2b49c2/fff" alt="Generic placeholder image">
+                    <div class="media-body">
+                    <h1 class="mt-0">My Repo</h1>
+                    <h3> <small class="text-muted">By @User</small> </h3>
+                    <p class="lead">An Angular App to visualize a repo's history</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Repo Dashboard details-->
+        <div class="row">
+            <!-- Branches and commits -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h3 class="text-muted">General info</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li class="lead">
+                                <h5>Created on {{creationDate | date: 'mediumDate'}}</h5>
+                            </li>
+                            <li class="lead" [ngPlural]="branchesNumber">
+                                <h5>
+                                    <ng-template ngPluralCase="=0">There are no branches yet</ng-template>
+                                    <ng-template ngPluralCase="=1">1 branch</ng-template>
+                                    <ng-template ngPluralCase="other">{{branchesNumber}} branches</ng-template>
+                                </h5>
+                                
+                            </li>
+                            <li class="lead" [ngPlural]="commitsNumber">
+                                <h5>
+                                    <ng-template ngPluralCase="=0">There are no commits yet</ng-template>
+                                    <ng-template ngPluralCase="=1">1 commit</ng-template>
+                                    <ng-template ngPluralCase="other">{{commitsNumber}} commits</ng-template>
+                                </h5>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Last commit -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h3 class="text-muted">Latest commit</h3>
+                    </div>
+                    <div class="card-body">
+                        <h6>Date: {{lastCommit.date | date: 'mediumDate'}}
+                            <span class="text-muted">Author: {{lastCommit.author}}</span>
+                        </h6>
+                        <h6>{{lastCommit.filesNumber}} file(s) affected</h6>
+                        <p class="card-text">{{lastCommit.message}}</p>
+                    </div>
+                  </div>
+                
+                
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    
 </div>
