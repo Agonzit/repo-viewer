@@ -3,7 +3,7 @@ export class Commit {
     public message?: string;
     public filesNumber?: number;
     public author?: string;
-  
+
     constructor(commit: any) {
         this.date = commit.date || '';
         this.message = commit.message || '';

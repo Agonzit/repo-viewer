@@ -16,8 +16,8 @@
                         <tab heading="Card View" id="cardsTab">
                           <div class="row cards-container" >
                             <div class="col-lg-6 col-sm-12 card-wrapper" *ngFor="let commit of commits">
-                              <content-card [data]="commit">
-                              </content-card>
+                              <app-content-card [data]="commit">
+                              </app-content-card>
                             </div>
                           </div>
                         </tab>

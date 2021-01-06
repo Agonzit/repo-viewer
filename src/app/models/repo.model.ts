@@ -7,7 +7,7 @@ export class Repo {
     public creationdate?: string;
     public updatedat?: string;
     public avatar?: string;
-  
+
     constructor(repo: any) {
         this.name = repo.name || '';
         this.author = repo.author || '';

@@ -19,21 +19,21 @@ export class DataService {
   constructor(
     private http: HttpClient) { }
 
-  
+
   /*GET Repo and Commit data, handle simultaneously
   */
   getDashboardData(gituser: string = 'agonzit', reponame: string = 'repo-viewer'): Observable<any>{
-    let repourl = this.repopath + '/' + gituser + '/' + reponame;
-    let commiturl = repourl + '/' + this.commitpath;
+    const repourl = this.repopath + '/' + gituser + '/' + reponame;
+    const commiturl = repourl + '/' + this.commitpath;
 
-    let requestRepo = this.http.get(repourl, this.httpOptions).pipe( catchError(this.handleError<any>('get Repo' )) );
-    let requestCommit = this.http.get(commiturl, this.httpOptions).pipe( catchError(this.handleError<any>('get Last Commit' )) );
+    const requestRepo = this.http.get(repourl, this.httpOptions).pipe( catchError(this.handleError<any>('get Repo' )) );
+    const requestCommit = this.http.get(commiturl, this.httpOptions).pipe( catchError(this.handleError<any>('get Last Commit' )) );
 
     return forkJoin([requestRepo, requestCommit]);
   }
 
   getCommits(gituser: string = 'agonzit', reponame: string = 'repo-viewer'): Observable<any>{
-    let url = this.repopath + '/' + gituser + '/' + reponame + '/commits';
+    const url = this.repopath + '/' + gituser + '/' + reponame + '/commits';
     return this.http.get<any>(url)
       .pipe(
         catchError(this.handleError<any[]>('get Repo' ))
@@ -46,9 +46,9 @@ export class DataService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T): (any){
     return (error: any): Observable<T> => {
-    
+
       console.error(error); // log to console instead
 
       // Let the app keep running by returning an empty result.
