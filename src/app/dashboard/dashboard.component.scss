@@ -1,6 +1,4 @@
-.container{
-    padding-top: 2rem;
-}
+
 .media-body{
     display: inline-block;
     padding-left: 0.5rem;
@@ -12,11 +10,3 @@
     white-space: pre-wrap;
 }
 
-@media (max-width: 480px) {
-    .col-sm-12{
-        margin-bottom: 1rem;
-    }
-    .container{
-        padding-bottom: 1rem;
-    }
-}

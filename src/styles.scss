@@ -3,6 +3,18 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+.container{
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+}
 .text-prewrap{
     white-space: pre-wrap;
+}
+
+
+/* Media styles */
+@media (max-width: 480px) {
+    .col-sm-12{
+        margin-bottom: 1rem;
+    }
 }
