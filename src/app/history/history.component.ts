@@ -30,15 +30,17 @@ export class HistoryComponent implements OnInit {
     .pipe(takeUntil(this.destroyed$))
     .subscribe(response => 
       {
-        console.log(response);
+        
         this.commits = response.map( (data: any) => {
           return new Commit({
-            date: data.commit.committer.date,
+            date: new Date(data.commit.committer.date),
             message: data.commit.message,
             author: data.commit.author.name});
+        })
+        .sort(function(a: any,b: any){
+          return b.date.getTime() - a.date.getTime();
         });
-
-        console.log(this.commits);
+        
       });
   }
 

@@ -10,13 +10,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from './services/data-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoryComponent } from './history/history.component';
+import { ContentCardComponent } from './components/content-card/content-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    HistoryComponent
+    HistoryComponent,
+    ContentCardComponent
   ],
   imports: [
     BrowserModule,

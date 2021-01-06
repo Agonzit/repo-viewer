@@ -1,5 +1,5 @@
 export class Commit {
-    public date?: string;
+    public date?: Date | string;
     public message?: string;
     public filesNumber?: number;
     public author?: string;

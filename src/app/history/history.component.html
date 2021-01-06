@@ -5,8 +5,21 @@
                 <div class="col">
                     <tabset>
                         <tab heading="Table view" id="tablesTab">
-                            <ng-container *ngTemplateOutlet="commitsTable"></ng-container>
+                            <div class="row">
+                                <div class="col">
+                                    <ng-container *ngTemplateOutlet="commitsTable"></ng-container>
+                                </div>
+                            </div>
+                            
     
+                        </tab>
+                        <tab heading="Card View" id="cardsTab">
+                          <div class="row cards-container" >
+                            <div class="col-lg-6 col-sm-12 card-wrapper" *ngFor="let commit of commits">
+                              <content-card [data]="commit">
+                              </content-card>
+                            </div>
+                          </div>
                         </tab>
                       </tabset>
                 </div>
@@ -28,7 +41,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let commit of commits">
-            <td class="col-2 accent">{{commit?.date | date: 'mediumDate'}}</td>
+            <td class="col-2 accent">{{commit?.date | date: 'short'}}</td>
             <td class="col-2 accent">{{commit?.author}}</td>
             <td class="col-8">
                 <p class="text-prewrap">{{commit?.message}}</p>
