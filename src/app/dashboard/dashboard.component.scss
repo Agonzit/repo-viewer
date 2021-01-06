@@ -8,6 +8,9 @@
 .repo-avatar{
     max-width: 10rem;
 }
+.commit-message{
+    white-space: pre-wrap;
+}
 
 @media (max-width: 480px) {
     .col-sm-12{

@@ -32,6 +32,13 @@ export class DataService {
     return forkJoin([requestRepo, requestCommit]);
   }
 
+  getCommits(gituser: string = 'agonzit', reponame: string = 'repo-viewer'): Observable<any>{
+    let url = this.repopath + '/' + gituser + '/' + reponame + '/commits';
+    return this.http.get<any>(url)
+      .pipe(
+        catchError(this.handleError<any[]>('get Repo' ))
+      );
+  }
 
   /**
    * Handle Http operation that failed.

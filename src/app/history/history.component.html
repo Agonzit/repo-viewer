@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col">
+                    <tabset>
+                        <tab heading="Table view" id="tablesTab">
+                            <ng-container *ngTemplateOutlet="commitsTable"></ng-container>
+    
+                        </tab>
+                      </tabset>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #commitsTable>
+    <table class="table commits-table w-auto">
+        <thead>
+          <tr>
+            <th scope="col" class="col-2">Date</th>
+            <th scope="col" class="col-2">Author</th>
+            <th scope="col" class="col-8">Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let commit of commits">
+            <td class="col-2">{{commit?.date | date: 'mediumDate'}}</td>
+            <td class="col-2">{{commit?.author}}</td>
+            <td class="col-8">
+                <p>{{commit?.message}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</ng-template>
